@@ -58,7 +58,7 @@ Files paleo-mammals.txt and paleo-mammals-v3.txt differ
 ## Renaming files
 
 - Imagine you have a lot of data files named similarly
-- To create a backup copy of all of them, try a loop like:
+- To rename all of them, try a loop like:
 
 ```bash
 $ for filename in *.csv
@@ -67,3 +67,24 @@ $ for filename in *.csv
 > done
 ```
 
+## Bash scripts
+
+- Series of commands can be saved in a file and run at any time
+- Useful to write a program that automates a task
+- Start with `#!` syntax to indicate which program should be used for the script
+    - e.g., `#!/bin/bash` to use the bash shell
+
+## A simple bash script
+
+```bash
+#!/bin/bash
+
+# Example of a simple shell script
+# Do not really use this for backup!
+PREFIX="backup-"
+FILES=$@
+for file in $FILES
+do
+    cp $file $PREFIX$file
+done
+```
